@@ -1,0 +1,8 @@
+name = "TMeshes"
+uuid = "00e613e3-3517-4068-b432-60b6a85c0988"
+authors = ["CodeLenz <eduardobarplenz@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+BMesh = "91fb467a-ecbd-11ec-0e64-1b9c3501232a"
+LMesh = "d047fe3d-8f3f-49d5-9d8c-6d96a24d56f7"
