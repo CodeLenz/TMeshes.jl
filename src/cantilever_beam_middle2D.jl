@@ -20,7 +20,7 @@ function Cantilever_beam_middle2D(nx::Int64,ny::Int64,etype=:truss2D;
     if etype==:truss2D
         bmesh = Bmesh_truss_2D(Lx,nx,Ly,ny)
     elseif etype==:solid2D
-        bmesh = Bmesh_solid_2D(Lx,nx,Ly,ny,0.1)
+        bmesh = Bmesh_solid_2D(Lx,nx,Ly,ny)
     end
      
     nebc = 2*(ny+1)
