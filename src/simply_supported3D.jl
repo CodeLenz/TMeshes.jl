@@ -41,9 +41,10 @@ function Simply_supported3D(nx::Int64,ny::Int64,nz::Int64,etype=:truss3D;
           (nx+1)*(ny+1) 1 0.0 ;
           (nx+1)*(ny+1) 2 0.0 ;
           (nx+1)*(ny+1) 3 0.0 ]
-
+                                      
+                         
     # Generate the load information
-    no_forca = ((nx/2)+1)*(ny/2)
+    no_forca = (nx/2+1)  +  (nx+1)*(ny/2)
     nbc = [no_forca 3 -force]
 
     # Vamos definir Ex e A "fixos" -> valores muito "chutados"
