@@ -15,7 +15,9 @@ function Cantilever_beam_middle2D(nx::Int64,ny::Int64,etype=:truss2D;
 
 
     @assert etype==:truss2D || etype==:solid2D "Cantilever_Beam_Middle2D::etype must be truss2D or solid2D"
-
+    @assert iseven(ny) "Cantilever_Beam_Middle2D::ny must be even"
+  
+  
     # Generate the mesh
     if etype==:truss2D
         bmesh = Bmesh_truss_2D(Lx,nx,Ly,ny)
