@@ -54,7 +54,7 @@
     @test_throws AssertionError Simply_supported2D(3,3,2)
        
     # @assert etype==:truss3D "Simply_Supported3D::etype must be truss3D"
-    @test_throws AssertionError Simply_supported2D(2,2,2,:bla)
-    @test_throws AssertionError Simply_supported2D(2,2,2,:solid3D)
+    @test_throws AssertionError Simply_supported3D(2,2,2,:bla)
+    @test_throws AssertionError Simply_supported3D(2,2,2,:solid3D)
 
 end
