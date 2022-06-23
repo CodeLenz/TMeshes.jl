@@ -24,7 +24,7 @@ function Cantilever_beam_bottom2D(nx::Int64,ny::Int64,etype=:truss2D;
      
     # Essential boundary conditions
     nebc = 2*(ny+1)
-    ebc = Array{Float64}(undef,nebc,2)
+    ebc = Array{Float64}(undef,nebc,3)
     node = 1
     pos = 0
     for i=1:(ny+1)
