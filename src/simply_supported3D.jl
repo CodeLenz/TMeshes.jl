@@ -19,7 +19,7 @@ function Simply_supported3D(nx::Int64,ny::Int64,nz::Int64,etype=:truss3D;
     # nx and ny have to be even, since the load is exactly at the (bottom) center
     @assert iseven(nx)&&iseven(ny) "Simply_Supported3D::nx and ny must be even"
 
-    @assert etype==:truss3D "Simply_Supported3D::etype must be truss3D"
+    @assert etype==:truss3D || etype==:solid3D "Simply_Supported3D:: $etype must be :truss3D or :solid3D"
 
     # Generate the mesh
     if etype==:truss3D
