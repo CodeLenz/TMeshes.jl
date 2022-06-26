@@ -10,6 +10,7 @@
 #
 function Cantilever_beam_bottom2D(nx::Int64,ny::Int64,etype=:truss2D;   
                                   Lx=8.0, Ly=5.0, force=1.0, A=1E-4, Ex=1E9,
+                                  νxy=0.0,
                                   density=7850.0,thickness=0.1)
 
 
@@ -40,7 +41,7 @@ function Cantilever_beam_bottom2D(nx::Int64,ny::Int64,etype=:truss2D;
     nbc = [no_forca 2 -force]
     
     # Vamos definir Ex e A "fixos" -> valores muito "chutados"
-    mat = [Material(Ex=Ex, density=density)]
+    mat = [Material(Ex=Ex, density=density,νxy=νxy)]
     geom = [Geometry(A=A, thickness=thickness)]
 
     # Gera a malha e devolve um tipo Mesh2D
