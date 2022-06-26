@@ -46,6 +46,8 @@
     # valid tests
     @test isa(Simply_supported3D(2,2,2), Mesh3D)
     @test isa(Simply_supported3D(2,2,2,:truss3D), Mesh3D)
+    @test isa(Simply_supported3D(2,2,2,:solid3D), Mesh3D)
+
 
     # Should throw
     # @assert iseven(nx)&&iseven(ny) "Simply_Supported3D::nx and ny must be even"
@@ -53,8 +55,5 @@
     @test_throws AssertionError Simply_supported3D(2,3,2)
     @test_throws AssertionError Simply_supported3D(3,3,2)
        
-    # @assert etype==:truss3D "Simply_Supported3D::etype must be truss3D"
-    @test_throws AssertionError Simply_supported3D(2,2,2,:bla)
-    @test_throws AssertionError Simply_supported3D(2,2,2,:solid3D)
 
 end
