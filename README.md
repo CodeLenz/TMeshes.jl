@@ -17,7 +17,7 @@ Simply_supported2D(6,6,:solid2D)
 # Simply supported problem with 3D solid: 6 x 6 x 6 grid
 Simply_supported3D(6,6,6,:solid3D)
 
-# Simply supported problem with 2D trusses: 6 x 6 grid and a 2 x 2 m domain
+# Simply supported problem with 2D trusses: 6 x 6 grid in a 2 x 2 m domain
 Simply_supported2D(6,6; Lx=2.0, Ly=2.0)
 
 
