@@ -1,10 +1,16 @@
 @testset "TMeshes" begin
 
+    
+    options = Dict{Symbol,Matrix{Float64}}()
+    options[:Option]=zeros(2,2)
+    options[:OtherOption]=ones(1,1)
+
     #################### Cantilever_beam_bottom2D ##########################
     # valid tests
     @test isa(Cantilever_beam_bottom2D(2,2), Mesh2D)
     @test isa(Cantilever_beam_bottom2D(2,2,:truss2D), Mesh2D)
     @test isa(Cantilever_beam_bottom2D(2,2,:solid2D), Mesh2D)
+    @test isa(Cantilever_beam_bottom2D(2,2,:solid2D,options=options), Mesh2D)
 
 
     # Should throw
@@ -17,6 +23,7 @@
     @test isa(Cantilever_beam_middle2D(2,2), Mesh2D)
     @test isa(Cantilever_beam_middle2D(2,2,:truss2D), Mesh2D)
     @test isa(Cantilever_beam_middle2D(2,2,:solid2D), Mesh2D)
+    @test isa(Cantilever_beam_middle2D(2,2,:solid2D,options=options), Mesh2D)
 
 
     # Should throw
@@ -32,6 +39,7 @@
     @test isa(Simply_supported2D(2,2), Mesh2D)
     @test isa(Simply_supported2D(2,2,:truss2D), Mesh2D)
     @test isa(Simply_supported2D(2,2,:solid2D), Mesh2D)
+    @test isa(Simply_supported2D(2,2,:solid2D,options=options), Mesh2D)
 
 
     # Should throw
@@ -47,6 +55,7 @@
     @test isa(Simply_supported3D(2,2,2), Mesh3D)
     @test isa(Simply_supported3D(2,2,2,:truss3D), Mesh3D)
     @test isa(Simply_supported3D(2,2,2,:solid3D), Mesh3D)
+    @test isa(Simply_supported3D(2,2,2,:solid3D,options=options), Mesh3D)
 
 
     # Should throw
