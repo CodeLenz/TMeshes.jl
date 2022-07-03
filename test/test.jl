@@ -65,4 +65,12 @@
     @test_throws AssertionError Simply_supported3D(3,3,2)
        
 
+    #################### Inverter2D ##########################
+    # valid tests
+    @test isa(Inverter2D(2,2), Mesh2D)
+    @test isa(Inverter2D(2,2,:truss2D), Mesh2D)
+    @test isa(Inverter2D(2,2,:solid2D), Mesh2D)
+    @test isa(Inverter2D(2,2,:solid2D,options=options), Mesh2D)
+
+
 end
