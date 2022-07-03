@@ -12,7 +12,8 @@
 function Cantilever_beam_middle2D(nx::Int64,ny::Int64,etype=:truss2D;   
                                   Lx=8.0, Ly=5.0, force=1.0, A=1E-4, Ex=1E9,
                                   νxy=0.0,
-                                  density=7850.0, thickness=0.1)
+                                  density=7850.0, thickness=0.1
+                                  options = Dict{Symbol,Matrix{Float64}})
 
 
     @assert etype==:truss2D || etype==:solid2D "Cantilever_Beam_Middle2D::etype must be truss2D or solid2D"
@@ -47,7 +48,7 @@ function Cantilever_beam_middle2D(nx::Int64,ny::Int64,etype=:truss2D;
     geom = [Geometry(A=A, thickness=thickness)]
 
     # Gera a malha e devolve um tipo Mesh2D
-    Mesh2D(bmesh,mat,geom,ebc,nbc)
+    Mesh2D(bmesh,mat,geom,ebc,nbc,options=options)
 
 end
 
