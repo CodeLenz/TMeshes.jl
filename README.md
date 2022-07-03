@@ -39,7 +39,8 @@ Simply supported 2D
 Simply_supported2D(nx::Int64,ny::Int64,etype=:truss2D;   
                    Lx=1.0, Ly=1.0, force=1.0, A=1E-4 ,
                    Ex=1E9, νxy=0,
-                   density=7850.0,thickness=0.1)
+                   density=7850.0,thickness=0.1, 
+                   options = Dict{Symbol,Matrix{Float64}})
 nx must be even
 
 
@@ -60,7 +61,8 @@ Cantilever beam with bottom load 2D
 function Cantilever_beam_bottom2D(nx::Int64,ny::Int64,etype=:truss2D;   
                                   Lx=8.0, Ly=5.0, force=1.0, A=1E-4,
                                   Ex=1E9,νxy=0,
-                                  density=7850.0,thickness=0.1)
+                                  density=7850.0,thickness=0.1,
+                                  options = Dict{Symbol,Matrix{Float64}})
                                   
 ```                                  
 
@@ -80,7 +82,8 @@ Cantilever beam with central load 2D
 function Cantilever_beam_middle2D(nx::Int64,ny::Int64,etype=:truss2D;   
                                   Lx=8.0, Ly=5.0, force=1.0, A=1E-4, 
                                   Ex=1E9, νxy=0,
-                                  density=7850.0,thickness=0.1)
+                                  density=7850.0,thickness=0.1,
+                                  options = Dict{Symbol,Matrix{Float64}})
 ny must be even
 
 ```                                  
@@ -100,7 +103,8 @@ ny must be even
 function Simply_supported3D(nx::Int64,ny::Int64,nz::Int64,etype=:truss3D;
                           Lx=1.0, Ly=1.0, Lz=1.0, force=1.0, A=1E-4,
                           Ex=1E9, νxy=0,
-                          density=7850.0,thickness=0.1)
+                          density=7850.0,thickness=0.1,
+                          options = Dict{Symbol,Matrix{Float64}})
 
 nx and ny must be even                                  
 ```                                  
