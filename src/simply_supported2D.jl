@@ -12,7 +12,7 @@ function Simply_supported2D(nx::Int64,ny::Int64,etype=:truss2D;
                           Lx=1.0, Ly=1.0, force=1.0, A=1E-4 ,Ex=1E9,
                           νxy=0.0,
                           density=7850.0,thickness=0.1,
-                          options = Dict{Symbol,Matrix{Float64}})
+                          options = Dict{Symbol,Matrix{Float64}}())
 
 
 
