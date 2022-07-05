@@ -48,6 +48,11 @@ function Inverter2D(nx::Int64,ny::Int64,etype=:truss2D;
     mat = [Material(Ex=Ex,density=density,νxy=νxy)]
     geom = [Geometry(A=A, thickness=thickness)]
 
+    # Se o elemento for de elasticidade ligamos o IS_TOPO
+    if etype==:solid2D
+        options[:IS_TOPO]=ones(1,1)
+    end
+
     # Generate the mesh
     Mesh2D(bmesh,mat,geom,ebc,nbc,options=options)
 
