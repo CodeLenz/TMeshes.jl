@@ -19,6 +19,8 @@ function Simply_supported2D(nx::Int64,ny::Int64,etype=:truss2D;
     # Nx has to be even, since the load is exactly at the (bottom) center
     @assert iseven(nx) "Simply_Supported2D::nx must be even"
 
+    @assert nx > 3 "Simply_Supported2D::nx must be >3 due to loading"
+
     @assert etype==:truss2D || etype==:solid2D "Simply_Supported2D::etype must be truss2D or solid2D"
 
     # Generate the mesh
@@ -29,14 +31,27 @@ function Simply_supported2D(nx::Int64,ny::Int64,etype=:truss2D;
     end
 
     # Generate the supports
-    ebc = [1 1 0.0;
+    #=
+    ebc = [1 1 0.0;  
            1 2 0.0;
+           2 1 0.0;
+           2 2 0.0;
+           nx 1 0.0;
+           nx 2 0.0;
           nx+1 1 0.0;
           nx+1 2 0.0]
+          =#
+   ebc = [1 1 0.0;  
+          1 2 0.0;
+         nx+1 1 0.0;
+         nx+1 2 0.0]
+   
 
     # Generate the load information
-    no_forca = (nx/2)+1
-    nbc = [no_forca 2 -force]
+    no_central_forca = (nx/2)
+    nbc = [no_central_forca-1 2 -force/4 ;
+           no_central_forca 2  -force/2 ;
+           no_central_forca+1 2 -force/4  ]
 
     # Vamos definir Ex e A "fixos" -> valores muito "chutados"
     mat = [Material(Ex=Ex,density=density,νxy=νxy)]
