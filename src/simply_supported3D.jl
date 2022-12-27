@@ -32,18 +32,18 @@ function Simply_supported3D(nx::Int64,ny::Int64,nz::Int64,etype=:truss3D;
 
     # Generate the supports: one at each corner of
     # plane Z=0
-    ebc = [1 1 0.0;
-           1 2 0.0;
-           1 3 0.0;
-          nx+1 1 0.0;
-          nx+1 2 0.0;
-          nx+1 3 0.0;
-          (nx+1)*ny+1 1 0.0; 
-          (nx+1)*ny+1 2 0.0; 
-          (nx+1)*ny+1 3 0.0 ;
-          (nx+1)*(ny+1) 1 0.0 ;
-          (nx+1)*(ny+1) 2 0.0 ;
-          (nx+1)*(ny+1) 3 0.0 ]
+    hebc = [1 1 ;
+           1 2 ;
+           1 3 ;
+          nx+1 1 ;
+          nx+1 2 ;
+          nx+1 3 ;
+          (nx+1)*ny+1 1 ; 
+          (nx+1)*ny+1 2 ; 
+          (nx+1)*ny+1 3  ;
+          (nx+1)*(ny+1) 1  ;
+          (nx+1)*(ny+1) 2  ;
+          (nx+1)*(ny+1) 3  ]
                                       
                          
     # Generate the load information
@@ -60,6 +60,6 @@ function Simply_supported3D(nx::Int64,ny::Int64,nz::Int64,etype=:truss3D;
     end
 
     # Gera a malha e devolve um tipo Mesh3D
-    Mesh3D(bmesh,mat,geom,ebc,nbc,options=options)
+    Mesh3D(bmesh,mat,geom,hebc,nbc,options=options)
 
 end

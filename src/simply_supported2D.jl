@@ -33,19 +33,19 @@ function Simply_supported2D(nx::Int64,ny::Int64,etype=:truss2D;
 
     # Generate the supports
     #=
-    ebc = [1 1 0.0;  
-           1 2 0.0;
-           2 1 0.0;
-           2 2 0.0;
-           nx 1 0.0;
-           nx 2 0.0;
-          nx+1 1 0.0;
-          nx+1 2 0.0]
+    hebc = [1 1;  
+           1 2 ;
+           2 1 ;
+           2 2 ;
+           nx 1 ;
+           nx 2 ;
+          nx+1 1;
+          nx+1 2 ]
           =#
-   ebc = [1 1 0.0;  
-          1 2 0.0;
-         nx+1 1 0.0;
-         nx+1 2 0.0]
+   hebc = [1 1 ;  
+          1 2 ;
+          nx+1 1 ;
+          nx+1 2 ]
    
 
     # Generate the load information
@@ -64,6 +64,6 @@ function Simply_supported2D(nx::Int64,ny::Int64,etype=:truss2D;
    end
 
     # Gera a malha e devolve um tipo Mesh2D
-    Mesh2D(bmesh,mat,geom,ebc,nbc,options=options)
+    Mesh2D(bmesh,mat,geom,hebc,nbc,options=options)
 
 end

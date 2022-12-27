@@ -64,12 +64,12 @@ function Lshape2D(nxh::Int64,nyh::Int64,
 
     @assert !isempty(nodes) "Lshape2D::no nodes to use in ebc"
 
-    nebc = length(nodes)
-    ebc = zeros(2*nebc,3)
+    nhebc = length(nodes)
+    hebc = zeros(Int64,2*nhebc,2)
     pos = 1
     for i=1:nebc
-        ebc[pos,1] = nodes[i]; ebc[pos,2] = 1; pos+=1;
-        ebc[pos,1] = nodes[i]; ebc[pos,2] = 2; pos+=1;
+        hebc[pos,1] = nodes[i]; hebc[pos,2] = 1; pos+=1;
+        hebc[pos,1] = nodes[i]; hebc[pos,2] = 2; pos+=1;
     end
 
     # Vamos definir Ex e A "fixos" -> valores muito "chutados"
@@ -82,6 +82,6 @@ function Lshape2D(nxh::Int64,nyh::Int64,
     end
 
     # Gera a malha e devolve um tipo Mesh2D
-    Mesh2D(bm,mat,geom,ebc,nbc,options=options)
+    Mesh2D(bm,mat,geom,hebc,nbc,options=options)
 
 end

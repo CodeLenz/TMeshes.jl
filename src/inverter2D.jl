@@ -25,21 +25,21 @@ function Inverter2D(nx::Int64,ny::Int64,etype=:truss2D;
 
     # Generate the supports
     # Symmetry conditions at the bottom + hinge at top left
-    nebc = nx+1 + 2
-    ebc = Array{Float64}(undef,nebc,3)
+    nhebc = nx+1 + 2
+    hebc = Array{Float64}(undef,nhebc,3)
 
     # Symmetry condition (botttom)
     node = 1
     pos = 0
     for i=1:nx+1
         pos += 1
-        ebc[i,:] = [i 2 0.0]
+        hebc[i,:] = [i 2]
     end
 
     # Upper left node 
     node = (nx+1)*(ny) + 1
-    ebc[end-1,:] = [node 1 0.0]
-    ebc[end,:]   = [node 2 0.0]
+    hebc[end-1,:] = [node 1]
+    hebc[end,:]   = [node 2]
     
     # Generate the load information
     node = 1
@@ -55,6 +55,6 @@ function Inverter2D(nx::Int64,ny::Int64,etype=:truss2D;
     end
 
     # Generate the mesh
-    Mesh2D(bmesh,mat,geom,ebc,nbc,options=options)
+    Mesh2D(bmesh,mat,geom,hebc,nbc,options=options)
 
 end

@@ -27,15 +27,15 @@ function Cantilever_beam_middle2D(nx::Int64,ny::Int64,etype=:truss2D;
         bmesh = Bmesh_solid_2D(Lx,nx,Ly,ny)
     end
      
-    nebc = 2*(ny+1)
-    ebc = Array{Float64}(undef,nebc,3)
+    nhebc = 2*(ny+1)
+    hebc = Array{Intt64}(undef,nhebc,2)
     node = 1
     pos = 0
     for i=1:(ny+1)
         pos += 1
-        ebc[pos,:] = [node 1 0.0]
+        hebc[pos,:] = [node 1]
         pos += 1
-        ebc[pos,:] = [node 2 0.0]
+        hebc[pos,:] = [node 2]
         node += (nx+1)
     end
 
@@ -53,7 +53,7 @@ function Cantilever_beam_middle2D(nx::Int64,ny::Int64,etype=:truss2D;
     end
 
     # Gera a malha e devolve um tipo Mesh2D
-    Mesh2D(bmesh,mat,geom,ebc,nbc,options=options)
+    Mesh2D(bmesh,mat,geom,hebc,nbc,options=options)
 
 end
 

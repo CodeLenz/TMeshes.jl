@@ -87,13 +87,13 @@ options = Dict{Symbol,Matrix{Float64}}())
 
     @assert !isempty(nodes) "Lshapee3D::no nodes to use in ebc"
 
-    nebc = length(nodes)
-    ebc = zeros(3*nebc,3)
+    nhebc = length(nodes)
+    hebc = zeros(Int64,3*nhebc,2)
     pos = 1
-    for i=1:nebc
-        ebc[pos,1] = nodes[i]; ebc[pos,2] = 1; pos+=1;
-        ebc[pos,1] = nodes[i]; ebc[pos,2] = 2; pos+=1;
-        ebc[pos,1] = nodes[i]; ebc[pos,2] = 3; pos+=1;
+    for i=1:nhebc
+        hebc[pos,1] = nodes[i]; hebc[pos,2] = 1; pos+=1;
+        hebc[pos,1] = nodes[i]; hebc[pos,2] = 2; pos+=1;
+        hebc[pos,1] = nodes[i]; hebc[pos,2] = 3; pos+=1;
     end
 
     # Vamos definir Ex e A "fixos" -> valores muito "chutados"
@@ -106,6 +106,6 @@ options = Dict{Symbol,Matrix{Float64}}())
     end
 
     # Gera a malha e devolve um tipo Mesh2D
-    Mesh3D(bm,mat,geom,ebc,nbc,options=options)
+    Mesh3D(bm,mat,geom,hebc,nbc,options=options)
 
 end
