@@ -1,5 +1,5 @@
 using Test
-using BMesh, LMesh, TMeshes
+using BMesh, Mesh, TMeshes
 using LinearAlgebra
 
 # Call tests
