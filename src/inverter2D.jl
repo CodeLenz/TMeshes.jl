@@ -26,7 +26,7 @@ function Inverter2D(nx::Int64,ny::Int64,etype=:truss2D;
     # Generate the supports
     # Symmetry conditions at the bottom + hinge at top left
     nhebc = nx+1 + 2
-    hebc = Array{Float64}(undef,nhebc,2)
+    hebc = Array{Int64}(undef,nhebc,2)
 
     # Symmetry condition (botttom)
     node = 1
