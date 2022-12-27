@@ -36,10 +36,10 @@
 
     #################### Simply_supported2D ##########################
     # valid tests
-    @test isa(Simply_supported2D(2,2), Mesh2D)
-    @test isa(Simply_supported2D(2,2,:truss2D), Mesh2D)
-    @test isa(Simply_supported2D(2,2,:solid2D), Mesh2D)
-    @test isa(Simply_supported2D(2,2,:solid2D,options=options), Mesh2D)
+    @test isa(Simply_supported2D(6,6), Mesh2D)
+    @test isa(Simply_supported2D(6,6,:truss2D), Mesh2D)
+    @test isa(Simply_supported2D(6,6,:solid2D), Mesh2D)
+    @test isa(Simply_supported2D(6,6,:solid2D,options=options), Mesh2D)
 
 
     # Should throw
@@ -52,10 +52,10 @@
 
     #################### Simply_supported3D ##########################
     # valid tests
-    @test isa(Simply_supported3D(2,2,2), Mesh3D)
-    @test isa(Simply_supported3D(2,2,2,:truss3D), Mesh3D)
-    @test isa(Simply_supported3D(2,2,2,:solid3D), Mesh3D)
-    @test isa(Simply_supported3D(2,2,2,:solid3D,options=options), Mesh3D)
+    @test isa(Simply_supported3D(6,6,6), Mesh3D)
+    @test isa(Simply_supported3D(6,6,6,:truss3D), Mesh3D)
+    @test isa(Simply_supported3D(6,6,6,:solid3D), Mesh3D)
+    @test isa(Simply_supported3D(6,6,6,:solid3D,options=options), Mesh3D)
 
 
     # Should throw
@@ -67,10 +67,10 @@
 
     #################### Inverter2D ##########################
     # valid tests
-    @test isa(Inverter2D(2,2), Mesh2D)
-    @test isa(Inverter2D(2,2,:truss2D), Mesh2D)
-    @test isa(Inverter2D(2,2,:solid2D), Mesh2D)
-    @test isa(Inverter2D(2,2,:solid2D,options=options), Mesh2D)
+    @test isa(Inverter2D(6,6), Mesh2D)
+    @test isa(Inverter2D(6,6,:truss2D), Mesh2D)
+    @test isa(Inverter2D(6,6,:solid2D), Mesh2D)
+    @test isa(Inverter2D(6,6,:solid2D,options=options), Mesh2D)
 
 
 end

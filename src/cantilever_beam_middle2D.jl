@@ -28,7 +28,7 @@ function Cantilever_beam_middle2D(nx::Int64,ny::Int64,etype=:truss2D;
     end
      
     nhebc = 2*(ny+1)
-    hebc = Array{Intt64}(undef,nhebc,2)
+    hebc = Array{Int64}(undef,nhebc,2)
     node = 1
     pos = 0
     for i=1:(ny+1)
