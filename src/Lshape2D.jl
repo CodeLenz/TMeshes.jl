@@ -79,6 +79,7 @@ function Lshape2D(nxh::Int64,nyh::Int64,
     # Se o elemento for de elasticidade ligamos o IS_TOPO
     if etype==:solid2D
         options[:IS_TOPO]=ones(1,1)
+        options[:INCOMPATIBLE]=ones(1,1)
     end
 
     # Gera a malha e devolve um tipo Mesh2D

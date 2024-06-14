@@ -48,6 +48,7 @@ function Cantilever_beam_bottom2D(nx::Int64,ny::Int64,etype=:truss2D;
     # Se o elemento for de elasticidade ligamos o IS_TOPO
     if etype==:solid2D
         options[:IS_TOPO]=ones(1,1)
+        options[:INCOMPATIBLE]=ones(1,1)
     end
 
 
