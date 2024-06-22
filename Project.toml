@@ -6,10 +6,9 @@ version = "0.1.0"
 [deps]
 BMesh = "91fb467a-ecbd-11ec-0e64-1b9c3501232a"
 LMesh = "d047fe3d-8f3f-49d5-9d8c-6d96a24d56f7"
+Lgmsh = "901517f6-ef86-4a80-bf35-2c5b8e720204"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [compat]
-julia = "1.8"
-BMesh = "0.2"
-LMesh = "0.1"
+julia = "1.9"
